@@ -58,7 +58,6 @@ module.exports.process = function process() {
   let pagina = 0;
   for (let i = 0; i < contratos.length; i += 1) {
     const contrato = contratos[i];
-    // console.log(contrato[12]);
     if (i % 6 === 0) {
       pagina += 1;
     }
@@ -72,7 +71,6 @@ module.exports.process = function process() {
     const sos = encontrarSospechas(contrato);
     contratoObj.sospechosidad = sos.sospechosidad;
     contratoObj.sospechas = sos.sospechas;
-    console.log(contratoObj.sospechas);
     newFile.push(contratoObj);
   }
   jsonfile.writeFile('secop1.json', newFile, (err) => {
