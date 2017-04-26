@@ -1,0 +1,54 @@
+sid
+id
+position
+created_at
+created_meta
+updated_at
+updated_meta
+meta_meta
+Nivel Entidad
+Orden Entidad
+Nombre de la Entidad
+Tipo de proceso
+Estado del proceso
+Causal de otras formas de contratación directa
+Regimen de contratación
+Objeto a contratar
+Detalle del objeto a contratar
+Tipo de contrato
+Municipio obtencion
+Municipio entrega
+Municipios ejecucion
+Fecha de cargue en el secop
+Numero de constancia
+Numero de proceso
+Numero del contrato
+Cuantia proceso
+Nombre grupo
+Nombre familia
+ID clase
+Nombre clase
+ID adjudicacion
+Tipo identifi del contratista
+Identificacion del contratista
+Nom raz social contratista
+Dpto y muni contratista
+Tipo doc representante legal
+identific representante legal
+nombre del representante legal
+fecha de firma del contrato
+fecha ini ejec contrato
+plazo de ejec del contrato
+rango de ejec del contrato
+tiempo adiciones en dias
+tiempo adiciones en meses
+fecha fin ejec contrato
+compromiso presupuestal
+cuantia contrato
+valor total de adiciones
+valor contrato con adiciones
+objeto del contrato a la firma
+origen de los recursos
+proponentes seleccionados
+calificación definitiva
+nombre sub unidad ejecutora
