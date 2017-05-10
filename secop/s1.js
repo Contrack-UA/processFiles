@@ -1,3 +1,4 @@
+/* eslint-disable */
 const jsonfile = require('jsonfile');
 // const contratos = require('../data/data-secop1.json');
 const file = require('../data/data-secop1.json');
@@ -5,15 +6,15 @@ const file = require('../data/data-secop1.json');
 function encontrarSospechas(contrato) {
   let sospechosidad = 0;
   const sospechas = [];
-  // Valor de las adiciones superior al 10% del valor del contrato
-  if (contrato[47] > contrato[46] * 0.35) {
+  // Valor de las adiciones superior al 15% del valor del contrato
+  if (parseInt(contrato[47]) > parseInt(contrato[46]) * 0.15) {
     sospechosidad += 1;
     sospechas.push('Anticipo muy alto');
   }
   // Estado 'Terminado anormalmente después de convocado'
   if (contrato[12] === 'Terminado Anormalmente después de Convocado') {
     sospechosidad += 1;
-    sospechas.push('Estado anormal');
+    sospechas.push('Terminado Anormalmente después de Convocado');
   }
   // Plazo de ejecución no definido
   if (contrato[41] === 'No definido') {
@@ -21,13 +22,13 @@ function encontrarSospechas(contrato) {
     sospechas.push('Plazo de ejecución no definido');
   } else if (contrato[41] === 'D') {
     // Tiempo de adición superior a la mitad del plazo de ejecución del proyecto
-    if (contrato[42] >= contrato[40] * 0.5) {
+    if (parseInt(contrato[42]) >= parseInt(contrato[40]) * 0.5) {
       sospechosidad += 1;
       sospechas.push('Mucho tiempo de adición');
     }
   } else if (contrato[41] === 'M') {
     // Tiempo de adición superior a la mitad del plazo de ejecución del proyecto
-    if (contrato[43] >= contrato[40] * 0.5) {
+    if (parseInt(contrato[43]) >= parseInt(contrato[40]) * 0.5) {
       sospechosidad += 1;
       sospechas.push('Mucho tiempo de adición');
     }
@@ -40,11 +41,16 @@ function encontrarSospechas(contrato) {
       count += 1;
     }
   }
-  if (count >= 8) {
-    // console.log('hay');
-    sospechosidad += 1;
+  if (count >= 6) {
+    sospechosidad += 3;
     sospechas.push('8 o más campos sin definir');
-  }
+  } else if (count >= 4 && count < 6) {
+    sospechosidad += 2;
+    sospechas.push('Entre 4 y 6 campos sin definir');
+  } else if (count > 1 && count < 4) {
+     sospechosidad += 1;
+     sospechas.push('Entre 1 y 4 campos sin definir');
+   }
   return {
     sospechosdidad: sospechosidad,
     sospechas: sospechas

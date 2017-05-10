@@ -1,3 +1,4 @@
+/* eslint-disable */
 const jsonfile = require('jsonfile');
 const contratos = require('../data/datos-secop2.json');
 
